@@ -1,4 +1,5 @@
 import { PageSEO } from '@/components/SEO'
+import SectionTitle from '@/components/SectionTitle'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayout'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
@@ -34,11 +35,11 @@ export default function Blog({
         title={`Blog - ${siteMetadata.author}`}
         description={siteMetadata.description}
       />
+      <SectionTitle title='All Post' />
       <ListLayout
         posts={posts}
         initialDisplayPosts={initialDisplayPosts}
         pagination={pagination}
-        title='All Posts'
       />
     </>
   )

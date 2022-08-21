@@ -1,12 +1,16 @@
 import * as React from 'react';
 import { useCallback, useEffect, useState } from 'react';
-import WakatimeIcon from '../public/static/icons/wakatime-icon.svg';
-import GithubIcon from '../public/static/icons/github-icon.svg';
 
+import SectionTitle from '@/components/SectionTitle';
+import { Anchor } from '@/components/anchor';
 import clsxm from '@/lib/clsxm';
 
+import GithubIcon from '../public/static/icons/github-icon.svg';
+import WakatimeIcon from '../public/static/icons/wakatime-icon.svg';
+
+
 import dashboardDummy from './dashboard-dummy';
-import { Anchor } from '@/components/anchor';
+
 
 const initialMonthsArray = [
   'Jan',
@@ -103,24 +107,19 @@ export default function Dashboard() {
 
   return (
       <main>
-        <div className="pt-[10vh] md:pt-[15vh]">
-        <h1 className='text-zinc-700 dark:text-zinc-200'>Dashboard</h1>
-        <p className='text-zinc-500 dark:text-zinc-400 mt-2'>
-          Contains my personal information and tracking activity around my work,
-          built with Next.js API routes deployed as serverless functions
-        </p>
-        </div>
-        <div className="flex flex-col mt-7 gap-5">
+        <SectionTitle title='Dashboard' subTitle='Contains my personal information and tracking activity around my work,
+          built with Next.js API routes deployed as serverless functions' />
+        <div className="flex flex-col gap-10 mt-16">
           <section>
           <div className="flex flex-row items-center gap-2">
-              <GithubIcon className="h-6 w-6 dark:fill-white"/>
+              <GithubIcon className="w-6 h-6 dark:fill-white"/>
             <h3 className='text-zinc-700 dark:text-zinc-200'>Github Contributions</h3>
             </div>
             <p className='text-zinc-500 dark:text-zinc-400 '>
               My Github contribution over the year
             </p>
             <div className='grid grid-cols-1 gap-2 py-2 sm:grid-cols-2 md:grid-cols-4'>
-              <div className='flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800'>
+              <div className='flex flex-col px-4 py-2 shadow-md rounded-xl bg-zinc-100 dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800'>
                 <span className='text-sm dark:text-zinc-400'>Total</span>
                 <span className='text-2xl font-bold text-green-600'>
                   {
@@ -129,7 +128,7 @@ export default function Dashboard() {
                   }
                 </span>
               </div>
-              <div className='flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800'>
+              <div className='flex flex-col px-4 py-2 shadow-md rounded-xl bg-zinc-100 dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800'>
                 <span className='text-sm dark:text-zinc-400'>This Week</span>
                 <span className='text-2xl font-bold text-green-600'>
                   {dashboardDummy.data.user.contributionsCollection.contributionCalendar.weeks[0].contributionDays.reduce(
@@ -140,13 +139,13 @@ export default function Dashboard() {
                   )}
                 </span>
               </div>
-              <div className='flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800'>
+              <div className='flex flex-col px-4 py-2 shadow-md rounded-xl bg-zinc-100 dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800'>
                 <span className='text-sm dark:text-zinc-400'>Most Active</span>
                 <span className='text-2xl font-bold text-green-600'>
                   {mostActive}
                 </span>
               </div>
-              <div className='flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800'>
+              <div className='flex flex-col px-4 py-2 shadow-md rounded-xl bg-zinc-100 dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800'>
                 <span className='text-sm dark:text-zinc-400'>
                   Average Activity
                 </span>
@@ -180,7 +179,7 @@ export default function Dashboard() {
                     {month}
                   </li>
                 ))}
-                <li className='w-[12.3px]'></li>
+                <li className='w-[12.3px]' />
               </ul>
 
               <div className='flex justify-start gap-[3px] overflow-hidden'>
@@ -195,7 +194,7 @@ export default function Dashboard() {
                               'my-[2px] block h-[10px] w-[10px] rounded-sm',
                               [
                                 individualContributions.color === '#ebedf0' &&
-                                  'bg-gray-200 dark:bg-gray-800',
+                                  'bg-gray-300 dark:bg-gray-800',
                                   individualContributions.color === '#9be9a8' &&
                                   'bg-green-200',
                                   individualContributions.color === '#40c463' &&
@@ -214,7 +213,7 @@ export default function Dashboard() {
                 )}
               </div>
               <div className="flex ">
-                <div className="flex flex-row gap-2 items-center">
+                <div className="flex flex-row items-center gap-2">
                   <span>Less</span>
                   <ul className="flex flex-row gap-1">
                     <li
@@ -235,23 +234,23 @@ export default function Dashboard() {
           </section>
           <section>
             <div className="flex flex-row items-center gap-2">
-              <WakatimeIcon className="h-6 w-6 dark:fill-white"/>
+              <WakatimeIcon className="w-6 h-6 dark:fill-white"/>
             <h3 className='text-zinc-700 dark:text-zinc-200 '>Coding Activity</h3>
             </div>
            
             <p className='text-zinc-500 dark:text-zinc-400 '>
               Tracked by <Anchor href='#'>Wakatime</Anchor>
             </p>
-            <div className="grid grid-cols-1 gap-2 md:grid-cols-2 mt-2">
-            <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800">
+            <div className="grid grid-cols-1 gap-2 mt-2 md:grid-cols-2">
+            <div className="flex flex-col px-4 py-2 shadow-md rounded-xl bg-zinc-100 dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800">
               <span>
                 Most Productive Day
               </span>
-              <span>
+              <span className='text-xl font-semibold'>
                 9 hrs 26 mins
               </span>
             </div>
-            <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800">
+            <div className="flex flex-col px-4 py-2 shadow-md rounded-xl bg-zinc-100 dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800">
               <span>
                 Daily Coding Average
               </span>
@@ -259,31 +258,31 @@ export default function Dashboard() {
                 9 hrs 26 mins
               </span>
             </div>
-            <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800">
+            <div className="flex flex-col px-4 py-2 shadow-md rounded-xl bg-zinc-100 dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800">
               <span>
                 Hours Spent on Coding Alltime
               </span>
-              <span>
+              <span className='text-xl font-semibold'>
                 9 hrs 26 mins
               </span>
             </div>
-            <div className="flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800">
+            <div className="flex flex-col px-4 py-2 shadow-md rounded-xl bg-zinc-100 dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800">
               <span>
                 Last 7 Days
               </span>
-              <span>
+              <span className='text-xl font-semibold'>
                 9 hrs 26 mins
               </span>
             </div>
 
-            <div className='flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800'>
-                <span>Languages</span>
+            <div className='flex flex-col px-4 py-2 shadow-md rounded-xl bg-zinc-100 dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800'>
+                <span className='mb-1 font-bold'>Languages</span>
                 <ul className="flex flex-col">
-                              <li className='flex flex-row justify-between items-center gap-2'>
+                              <li className='flex flex-row items-center justify-between gap-2'>
                                   <span className='w-24'>
                                     Typescript
                                   </span>
-                                  <div className='relative flex h-3 flex-1 justify-center rounded-full bg-zinc-200 dark:bg-zinc-800'>
+                                  <div className='relative flex justify-center flex-1 h-3 bg-gray-300 rounded-full dark:bg-gray-800'>
                                     <div className="bg-gradient-to-r from-amber-400 to-rose-600 absolute left-0 top-0 h-3 rounded-full px-3 w-[90%]" />
                                   </div>
                                   <span>
@@ -292,11 +291,11 @@ export default function Dashboard() {
 
                               </li>
 
-                              <li className='flex flex-row justify-between items-center gap-2'>
+                              <li className='flex flex-row items-center justify-between gap-2'>
                                   <span className='w-24'>
                                     C++
                                   </span>
-                                  <div className='relative flex h-3 flex-1 justify-center rounded-full bg-zinc-200 dark:bg-zinc-800'>
+                                  <div className='relative flex justify-center flex-1 h-3 bg-gray-300 rounded-full dark:bg-gray-800'>
                                     <div className="bg-gradient-to-r from-amber-400 to-rose-600 absolute left-0 top-0 h-3 rounded-full px-3 w-[90%]" />
                                   </div>
                                   <span>
@@ -305,11 +304,11 @@ export default function Dashboard() {
 
                               </li>
 
-                              <li className='flex flex-row justify-between items-center gap-2'>
+                              <li className='flex flex-row items-center justify-between gap-2'>
                                   <span className='w-24'>
                                     Golang
                                   </span>
-                                  <div className='relative flex h-3 flex-1 justify-center rounded-full bg-zinc-200 dark:bg-zinc-800'>
+                                  <div className='relative flex justify-center flex-1 h-3 bg-gray-300 rounded-full dark:bg-gray-800'>
                                     <div className="bg-gradient-to-r from-amber-400 to-rose-600 absolute left-0 top-0 h-3 rounded-full px-3 w-[90%]" />
                                   </div>
                                   <span>
@@ -317,11 +316,11 @@ export default function Dashboard() {
                                   </span> 
 
                               </li>
-                              <li className='flex flex-row justify-between items-center gap-2'>
+                              <li className='flex flex-row items-center justify-between gap-2'>
                                   <span className='w-24'>
                                     Rust
                                   </span>
-                                  <div className='relative flex h-3 flex-1 justify-center rounded-full bg-zinc-200 dark:bg-zinc-800'>
+                                  <div className='relative flex justify-center flex-1 h-3 bg-gray-300 rounded-full dark:bg-gray-800'>
                                     <div className="bg-gradient-to-r from-amber-400 to-rose-600 absolute left-0 top-0 h-3 rounded-full px-3 w-[90%]" />
                                   </div>
                                   <span>
@@ -329,11 +328,11 @@ export default function Dashboard() {
                                   </span>
 
                               </li>
-                              <li className='flex flex-row justify-between items-center gap-2'>
+                              <li className='flex flex-row items-center justify-between gap-2'>
                                   <span className='w-24'>
                                     Others
                                   </span>
-                                  <div className='relative flex h-3 flex-1 justify-center rounded-full bg-zinc-200 dark:bg-zinc-800'>
+                                  <div className='relative flex justify-center flex-1 h-3 bg-gray-300 rounded-full dark:bg-gray-800'>
                                     <div className="bg-gradient-to-r from-amber-400 to-rose-600 absolute left-0 top-0 h-3 rounded-full px-3 w-[90%]" />
                                   </div>
                                   <span>
@@ -346,14 +345,14 @@ export default function Dashboard() {
                 
             </div>
 
-            <div className='flex flex-col rounded-xl bg-zinc-100 py-2 px-4 shadow-md dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800'>
-                <span>Operating System</span>
+            <div className='flex flex-col px-4 py-2 shadow-md rounded-xl bg-zinc-100 dark:bg-zinc-900 shadow-zinc-200 dark:shadow-zinc-800'>
+                <span className='mb-1 font-bold'>Operating System</span>
                 <ul className="flex flex-col">
-                              <li className='flex flex-row justify-between items-center gap-2'>
+                              <li className='flex flex-row items-center justify-between gap-2'>
                                   <p className='w-20'>
                                     Apple
                                   </p>
-                                  <div className='relative flex h-3 flex-1 justify-center rounded-full bg-zinc-200 dark:bg-zinc-800'>
+                                  <div className='relative flex justify-center flex-1 h-3 bg-gray-300 rounded-full dark:bg-gray-800'>
                                     <div className="bg-gradient-to-r from-amber-400 to-rose-600 absolute left-0 top-0 h-3 rounded-full px-3 w-[100%]" />
                                   </div>
                                   <span>
