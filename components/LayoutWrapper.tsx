@@ -1,7 +1,8 @@
+import clsx from 'clsx';
+import { useRouter } from 'next/router';
+
 import headerNavLinks from '@/data/headerNavLinks'
 import siteMetadata from '@/data/siteMetadata'
-import { useRouter } from 'next/router';
-import clsx from 'clsx';
 
 import Logo from '@/data/logo.svg'
 
@@ -21,7 +22,7 @@ const LayoutWrapper = ({ children }: Props) => {
   const route = useRouter().route;
   return (
     <SectionContainer>
-      <div className='flex h-screen flex-col justify-between'>
+      <div className='flex flex-col justify-between h-screen'>
         {/* <header className='flex items-center justify-between py-10'>
           <div>
             <Link href='/' aria-label={siteMetadata.headerTitle}>
@@ -53,13 +54,12 @@ const LayoutWrapper = ({ children }: Props) => {
         className={clsx(
           'fixed inset-x-0 bottom-0 z-10 flex justify-center',
           'motion-safe:animate-slide-up-fade pointer-events-none',
-          'bg-gradient-to-t from-neutral-900/50 to-transparent'
         )}
       >
         <nav
           className={clsx(
             'container relative mx-4 mt-4 mb-8 flex max-w-xl items-stretch justify-around overflow-x-auto overflow-y-hidden p-2',
-            'rounded-md bg-neutral-800/80 shadow-lg shadow-black/50',
+            'rounded-md dark:bg-zinc-800/70 bg-zinc-200/70 shadow-lg shadow-black/10 dark:shadow-black/50',
             'pointer-events-auto backdrop-blur-sm',
             'snap-x sm:snap-none',
             'navbar-style'
@@ -68,7 +68,7 @@ const LayoutWrapper = ({ children }: Props) => {
         >
           <Link href='/' className={clsx(
                 'navbar-item-style',
-                'relative z-10 m-2 cursor-pointer select-none text-gray-100 focus:outline-none',
+                'relative z-10 m-2 cursor-pointer select-none dark:text-gray-100 text-gray-800 focus:outline-none',
                 'transfor transition delay-100 duration-200 ease-out hover:scale-110',
                 {
                   active: route === '/',
@@ -79,7 +79,7 @@ const LayoutWrapper = ({ children }: Props) => {
           </Link>
           <Link href='/works' className={clsx(
                 'navbar-item-style',
-                'relative z-10 m-2 cursor-pointer select-none text-gray-100 focus:outline-none',
+                'relative z-10 m-2 cursor-pointer select-none dark:text-gray-100 text-gray-800 focus:outline-none',
                 'transfor transition delay-100 duration-200 ease-out hover:scale-110',
                 {
                   active: route === '/works',
@@ -92,7 +92,7 @@ const LayoutWrapper = ({ children }: Props) => {
           </Link>
           <Link href='/dashboard' className={clsx(
                 'navbar-item-style',
-                'relative z-10 m-2 cursor-pointer select-none text-gray-100 focus:outline-none',
+                'relative z-10 m-2 cursor-pointer select-none dark:text-gray-100 text-gray-800 focus:outline-none',
                 'transfor transition delay-100 duration-200 ease-out hover:scale-110',
                 {
                   active: route === '/dashboard',
@@ -104,7 +104,7 @@ const LayoutWrapper = ({ children }: Props) => {
           </Link>
           <Link href='/blog' className={clsx(
                 'navbar-item-style',
-                'relative z-10 m-2 cursor-pointer select-none text-gray-100 focus:outline-none',
+                'relative z-10 m-2 cursor-pointer select-none dark:text-gray-100 text-gray-800 focus:outline-none',
                 'transfor transition delay-100 duration-200 ease-out hover:scale-110',
                 {
                   active: route === '/blog',
